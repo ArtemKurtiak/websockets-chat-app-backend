@@ -8,7 +8,7 @@ const basicRouter = express.Router();
 
 basicRouter.get('/', (req, res) => {
     res.status(200).json({})
-})
+});
 
 app.use(basicRouter)
 
