@@ -1,4 +1,18 @@
 const io = require('socket.io')();
+const express = require('express');
+
+const app = express();
+
+
+const basicRouter = express.Router();
+
+basicRouter.get('/', (req, res) => {
+    res.status(200).json({})
+})
+
+app.use(basicRouter)
+
+
 
 const PORT = process.env.PORT || 5000;
 
@@ -15,6 +29,8 @@ io.on('connection', (client) => {
         })
         io.emit('messages', messages)
     })
-})
+});
+
+
 
 console.log('Socket is listening on port ' + PORT)
